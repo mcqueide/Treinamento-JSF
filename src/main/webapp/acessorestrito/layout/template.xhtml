@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<head>
+		<link href="#{request.contextPath}/css/bootstrap.css" type="text/css"
+		rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<ui:include src="/acessorestrito/layout/header.xhtml"></ui:include>
+		<!-- 
+			Passagem de parâmentro via facelets
+		 -->
+		 <ui:param name="esconderSaudacao" value="#{false}"></ui:param>
+		 
+		 <!-- 
+		 	Adicionar o trecho abaixo somente de aprendermos sobre validadores
+		  -->
+		  
+		  
+		  <!-- 
+		  	Fim: Adicionar o trecho abaixo somente de aprendermos sobre validador
+		   -->
+		   
+		   <div class="text-center col-mid-12">
+		   		<ui:include src="/acessorestrito/layout/menu.xhtml"></ui:include>
+		   </div>
+		   
+		   <br />
+		   
+		   <ui:insert name="principal">
+		   		<h:outputText value="Insira o conteúdo da página"></h:outputText>
+		   </ui:insert>
+		   
+		   <ui:include src="/acessorestrito/layout/footer.xhtml"></ui:include>
+		  
+	</body>
+
+
+</html>

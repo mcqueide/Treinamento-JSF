@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- f:view para não ser renderizado -->
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h1>Locadora VHS</h1>
+	
+	<div class="col-md-12">
+		<div class="pull-right">
+			<h4>Olá #{loginMBean.usuario}</h4>
+			<span>Você está em: </span>
+			<!-- 
+				ui:"insert" pede que utilizadores da página informem o valor
+				a variável
+			 -->
+			 <ui:insert name="localizacao"/>
+		</div>
+	</div>
+
+</f:view>
