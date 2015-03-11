@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- f:view para não ser renderizado -->
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:componente="http://java.sun.com/jsf/composite/componentes">
+
+	<ui:composition template="/acessorestrito/layout/template.xhtml">
+
+		<ui:define name="localizacao">
+			Cadastro
+		</ui:define>
+
+		<ui:define name="principal">
+			<!-- 
+				Ao final, apresentar fonte do HTML renderizado
+			 -->
+			<div>
+				<h:form>
+					<h:outputLabel value="Nome do título">
+						<br />
+						<h:inputText value="#{cadastroTituloMBean.nome}" label="" />
+					</h:outputLabel>
+
+					<br />
+
+					<h:outputLabel value="Preço">
+						<br />
+						<h:inputText value="#{cadastroTituloMBean.preco}" maxlength="10"
+							required="true" requiredMessage="O campo 'Preço' é obrigatório"
+							converterMessage="Houve um erro de conversão no compo 'Preço'"
+							validatorMessage="Não existe fita tão cara assim">
+
+							<!-- 
+			 				Falar sobre conversores
+			 			 -->
+							<f:convertNumber pattern="#0.00" />
+							<!-- 
+			 			 	Falar sobre validadores
+			 			  -->
+							<f:validateLength maximum="8" />
+						</h:inputText>
+						
+						<br />
+						
+						<h:outputLabel value="Preço com raio gourmetizador">
+							<br />
+							<h:inputText value="#{cadastroTituloMBean.precoGourmet}"
+							readonly="true" />
+						</h:outputLabel>
+						
+						<!-- 
+							Falar dos "composite components"
+						 -->
+						 <componente:email label="E-mail" valor="#{cadastroTituloMBean.emailFornecedor}" />
+						 <br/>
+						 
+						 <h:outputLabel value="Quantidade em estoque">
+						 	<br/>
+						 	<h:inputText value="" maxlength="6" required="true" label="Quantidade em estoque"
+						 	requiredMessage="Campo 'Quantidade em estoque' é obrigatório" />
+						 </h:outputLabel>
+						 
+						 <!-- 
+						 	Falar de bean validation
+						  -->
+						  <br />
+						  <br />
+						  
+						  <h:commandButton styleClass="btn btn-success"
+						  value="Salvar" action="#{cadastroTituloMBean.salvar()}"/>
+						 
+						
+					</h:outputLabel>
+
+
+				</h:form>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+
+</f:view>
