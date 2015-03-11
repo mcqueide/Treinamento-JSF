@@ -32,7 +32,8 @@
 						<h:inputText value="#{cadastroTituloMBean.preco}" maxlength="10"
 							required="true" requiredMessage="O campo 'Preço' é obrigatório"
 							converterMessage="Houve um erro de conversão no compo 'Preço'"
-							validatorMessage="Não existe fita tão cara assim">
+							validatorMessage="Não existe fita tão cara assim"
+							validator="validadorNumero">
 
 							<!-- 
 			 				Falar sobre conversores
@@ -61,7 +62,7 @@
 						 <h:outputLabel value="Quantidade em estoque">
 						 	<br/>
 						 	<h:inputText value="" maxlength="6" required="true" label="Quantidade em estoque"
-						 	requiredMessage="Campo 'Quantidade em estoque' é obrigatório" />
+						 	requiredMessage="Campo 'Quantidade em estoque' é obrigatório" validator="validadorNumero"/>
 						 </h:outputLabel>
 						 
 						 <!-- 
