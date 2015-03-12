@@ -51,5 +51,9 @@ public class CadastroTituloMBean implements Serializable {
 	public void salvar(){
 		
 	}
+	
+	public void calculaGourmet(){
+		precoGourmet = preco * 1.5;
+	}
 
 }

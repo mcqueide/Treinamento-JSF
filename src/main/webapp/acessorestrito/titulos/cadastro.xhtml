@@ -33,7 +33,7 @@
 							required="true" requiredMessage="O campo 'Preço' é obrigatório"
 							converterMessage="Houve um erro de conversão no compo 'Preço'"
 							validatorMessage="Não existe fita tão cara assim"
-							validator="validadorNumero">
+							>
 
 							<!-- 
 			 				Falar sobre conversores
@@ -43,13 +43,21 @@
 			 			 	Falar sobre validadores
 			 			  -->
 							<f:validateLength maximum="8" />
+							<!-- 
+								Aula 03
+							 -->
+							 <f:ajax event="blur" listener="#{cadastroTituloMBean.calculaGourmet()}"
+							 execute="@this" render="precoGourmet"/>
+							 <!-- 
+							 	Exercício: Faça com que "nome título" seja concatenado com "Gourmetizado"
+							  -->
 						</h:inputText>
 						
 						<br />
 						
 						<h:outputLabel value="Preço com raio gourmetizador">
 							<br />
-							<h:inputText value="#{cadastroTituloMBean.precoGourmet}"
+							<h:inputText id="precoGourmet" value="#{cadastroTituloMBean.precoGourmet}"
 							readonly="true" />
 						</h:outputLabel>
 						
