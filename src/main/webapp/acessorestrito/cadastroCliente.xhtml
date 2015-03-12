@@ -48,6 +48,15 @@
 					</h:outputLabel>
 
 					<br />
+					
+					<h:outputLabel value="Filme favorito">
+						<br />
+						<h:selectOneMenu value="#{clistagemTitulosMBean.titulosCadastrados}">
+							<f:selectItems value="#{cadastroClienteMBean.opcoesFilme()}" />
+						</h:selectOneMenu>
+					</h:outputLabel>
+					
+					<br />
 
 					<h:commandButton styleClass="btn btn-success" value="Salvar"
 						action="#{cadastroClienteMBean.salvar()}" />
