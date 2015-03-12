@@ -7,8 +7,33 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	<h:outputLink title="Cadastro de títulos" 
+<!-- 	<h:outputLink title="Cadastro de títulos" 
 	value="#{request.contextPath}/acessorestrito/titulos/cadastro.xhtml"
 	styleClass="btn btn-primary">Cadastro de Títulos</h:outputLink>
+ -->
+	<h:form id="menuForm">
+		<h:outputLink title="#{mensagem['titulo.cadastro']}" 
+		value="#{request.contextPath}/acessorestrito/titulos/cadastro.xhtml"
+		styleClass="btn btn-primary">
+			<!-- #{mensagem['titulo.cadastro']} -->
+			Cadastro de Títulos
+		</h:outputLink>
+		
+		&nbsp;
+		
+		<h:commandButton 
+		action="#{listagemTitulosMBean.apresentaPaginaTitulos}"
+		actionListener="#{listagemTitulosMBean.preenchePagina}"
+		styleClass="btn btn-primary" value="Listagem de títulos"/>
+		
+		&nbsp;
+		
+		<h:outputLink title="#{mensagem['titulo.cadastro']}" 
+		value="#{request.contextPath}/acessorestrito/cadastroCliente.xhtml"
+		styleClass="btn btn-primary">
+			<!-- #{mensagem['titulo.cadastro']} -->
+			Cadastro de Clientes
+		</h:outputLink>
+	</h:form>
 
 </f:view>

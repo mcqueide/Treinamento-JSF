@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- f:view para não ser renderizado -->
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:componente="http://java.sun.com/jsf/composite/componentes">
+
+	<ui:composition template="/acessorestrito/layout/template.xhtml">
+
+		<ui:define name="localizacao">
+			Cadastro Cliente
+		</ui:define>
+
+		<ui:define name="principal">
+			<div>
+				<h:form>
+					<h:outputLabel value="Nome">
+						<br />
+						<h:inputText value="#{cadastroClienteMBean.nome}"/>
+					</h:outputLabel>
+
+					<br />
+
+					<h:outputLabel value="Sobrenome">
+						<br />
+						<h:inputText value="#{cadastroClienteMBean.sobrenome}"/>
+					</h:outputLabel>
+
+					<br />
+
+					<h:outputLabel value="Idade">
+						<br />
+						<h:inputText value="#{cadastroClienteMBean.idade}" label="Idade">
+							<f:validator validatorId="validadorIdade" />
+						</h:inputText>
+					</h:outputLabel>
+
+					<br />
+
+					<h:outputLabel value="Data Nascimento">
+						<br />
+						<h:inputText value="#{cadastroClienteMBean.dataNascimento}">
+							<f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:inputText>
+					</h:outputLabel>
+
+					<br />
+
+					<h:commandButton styleClass="btn btn-success" value="Salvar"
+						action="#{cadastroClienteMBean.salvar()}" />
+					<br />
+
+				</h:form>
+
+			</div>
+		</ui:define>
+
+	</ui:composition>
+
+
+
+
+</f:view>

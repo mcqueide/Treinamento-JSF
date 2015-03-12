@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- f:view para não ser renderizado -->
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/acessorestrito/layout/template.xhtml">
+	
+		<ui:define name="localizacao">
+			Listagem de títulos
+		</ui:define>
+		
+		<ui:define name="principal">
+			<h:dataTable value="#{listagemTitulosMBean.titulosCadastrados}"
+			var="titulo"
+			styleClass="table" headerClass="order-table-header">
+			
+				<h:column>
+					<f:facet name="header">Título</f:facet>
+					<h:outputText value="#{titulo.nome}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Preço</f:facet>
+					<h:outputText value="#{titulo.preco}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Data de cadastro</f:facet>
+					<h:outputText value="#{titulo.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+					</h:outputText>
+				</h:column>
+			
+			</h:dataTable>
+		</ui:define>
+		
+	</ui:composition>
+
+</f:view>

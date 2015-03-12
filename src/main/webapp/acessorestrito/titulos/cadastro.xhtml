@@ -32,8 +32,7 @@
 						<h:inputText value="#{cadastroTituloMBean.preco}" maxlength="10"
 							required="true" requiredMessage="O campo 'Preço' é obrigatório"
 							converterMessage="Houve um erro de conversão no compo 'Preço'"
-							validatorMessage="Não existe fita tão cara assim"
-							>
+							validatorMessage="Não existe fita tão cara assim">
 
 							<!-- 
 			 				Falar sobre conversores
@@ -46,44 +45,54 @@
 							<!-- 
 								Aula 03
 							 -->
-							 <f:ajax event="blur" listener="#{cadastroTituloMBean.calculaGourmet()}"
-							 execute="@this" render="precoGourmet"/>
-							 <!-- 
+							<f:ajax event="blur"
+								listener="#{cadastroTituloMBean.calculaGourmet()}"
+								execute="@this" render="precoGourmet" />
+							<!-- 
 							 	Exercício: Faça com que "nome título" seja concatenado com "Gourmetizado"
 							  -->
 						</h:inputText>
-						
+					</h:outputLabel>
+
+					<br />
+
+					<h:outputLabel value="Preço com raio gourmetizador">
 						<br />
-						
-						<h:outputLabel value="Preço com raio gourmetizador">
-							<br />
-							<h:inputText id="precoGourmet" value="#{cadastroTituloMBean.precoGourmet}"
-							readonly="true" />
-						</h:outputLabel>
-						
-						<!-- 
+						<h:inputText id="precoGourmet"
+							value="#{cadastroTituloMBean.precoGourmet}" readonly="true" />
+					</h:outputLabel>
+
+					<!-- 
 							Falar dos "composite components"
 						 -->
-						 <componente:email label="E-mail" valor="#{cadastroTituloMBean.emailFornecedor}" />
-						 <br/>
-						 
-						 <h:outputLabel value="Quantidade em estoque">
-						 	<br/>
-						 	<h:inputText value="" maxlength="6" required="true" label="Quantidade em estoque"
-						 	requiredMessage="Campo 'Quantidade em estoque' é obrigatório" validator="validadorNumero"/>
-						 </h:outputLabel>
-						 
-						 <!-- 
+					<componente:email label="E-mail"
+						valor="#{cadastroTituloMBean.emailFornecedor}" />
+					<br />
+
+					<h:outputLabel value="Quantidade em estoque">
+						<br />
+						<h:inputText value="#{cadastroTituloMBean.quantidade}"
+							maxlength="6" required="true" label="Quantidade em estoque"
+							requiredMessage="Campo 'Quantidade em estoque' é obrigatório" />
+					</h:outputLabel>
+
+					<br />
+
+					<h:outputLabel value="Categoria">
+						<br />
+						<h:selectOneMenu value="#{cadastroTituloMBean.categoria}">
+							<f:selectItems value="#{cadastroTituloMBean.opcoesCategoria()}" />
+						</h:selectOneMenu>
+					</h:outputLabel>
+
+					<!-- 
 						 	Falar de bean validation
 						  -->
-						  <br />
-						  <br />
-						  
-						  <h:commandButton styleClass="btn btn-success"
-						  value="Salvar" action="#{cadastroTituloMBean.salvar()}"/>
-						 
-						
-					</h:outputLabel>
+					<br />
+					<br />
+
+					<h:commandButton styleClass="btn btn-success" value="Salvar"
+						action="#{cadastroTituloMBean.salvar()}" />
 
 
 				</h:form>

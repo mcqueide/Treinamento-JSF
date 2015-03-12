@@ -1,9 +1,12 @@
 package la.foton.treinamento.locadora.mbean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 @ViewScoped
@@ -16,7 +19,14 @@ public class CadastroTituloMBean implements Serializable {
 	private Double precoGourmet;
 	private Integer quantidade;
 	private String emailFornecedor;
+	private Integer categoria;
 	
+	public Integer getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Integer categoria) {
+		this.categoria = categoria;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -54,6 +64,16 @@ public class CadastroTituloMBean implements Serializable {
 	
 	public void calculaGourmet(){
 		precoGourmet = preco * 1.5;
+	}
+	
+	public List<SelectItem> opcoesCategoria(){
+		List<SelectItem> itens = new ArrayList<SelectItem>();
+		itens.add(new SelectItem(1, "Terror"));
+		itens.add(new SelectItem(2, "Humor"));
+		itens.add(new SelectItem(3, "Suspense"));
+		itens.add(new SelectItem(4, "Drama"));
+		
+		return itens;
 	}
 
 }
